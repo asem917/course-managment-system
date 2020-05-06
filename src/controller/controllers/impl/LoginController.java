@@ -16,7 +16,7 @@ public class LoginController implements Controller {
 
     @Override
     public String serve(Map<String, String> params) {
-        return null;
+   return "";
     }
 
     @Override

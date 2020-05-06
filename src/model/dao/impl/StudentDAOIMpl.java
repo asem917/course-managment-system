@@ -118,4 +118,21 @@ public class StudentDAOIMpl implements StudentDAO {
         connection.close();
 
     }
+    public boolean logIn(String passwored,String email) throws SQLException {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("select  student.idstudent from course_managment_system.student   where  password like ? and email like ?");
+            preparedStatement.setString(1, passwored);
+            preparedStatement.setString(2, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                resultSet.getInt(1);
+            }
+
+
+        }catch (SQLException e){
+            return false;
+        }
+        return true;
+    }
 }
