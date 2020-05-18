@@ -1,3 +1,4 @@
+import controller.controllers.impl.LoginController;
 import model.dao.InstructorDao;
 import model.dao.impl.AdminDAOimpl;
 import model.dao.impl.CourseDAOImpl;
@@ -8,27 +9,22 @@ import model.entity.Instructor;
 import model.entity.Student;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 
 public class main {
     public static void main(String[] args) {
 
-     //   AdminDAOimpl a=new AdminDAOimpl("root","root@JEA","localhost","course_managment_system");
-       // Instructor i=new Instructor(2,"asem","tbaileh","asd@asd.as","asdasd");
-       // Courses courses=new Courses(6,"java","ali");
-       // InstructorDAOimpl instructorDAOimpl=new InstructorDAOimpl("root","root@JEA","localhost","course_managment_system");
-       // CourseDAOImpl courseDAOimpl=new CourseDAOImpl("root","root@JEA","localhost","course_managment_system");
-       // Student student=new Student(6,"ali","sdsd","asdas@xv","asdczdc","2019");
-        StudentDAOIMpl studentDAOIMpl=new StudentDAOIMpl("root","root@JEA","localhost","course_managment_system");
+        //   AdminDAOimpl a=new AdminDAOimpl("root","root@JEA","localhost","course_managment_system");
+        // Instructor i=new Instructor(2,"asem","tbaileh","asd@asd.as","asdasd");
+        // Courses courses=new Courses(6,"java","ali");
+        // InstructorDAOimpl instructorDAOimpl=new InstructorDAOimpl("root","root@JEA","localhost","course_managment_system");
+        // CourseDAOImpl courseDAOimpl=new CourseDAOImpl("root","root@JEA","localhost","course_managment_system");
+        // Student student=new Student(6,"ali","sdsd","asdas@xv","asdczdc","2019");
 
-        try {
-            System.out.println(  studentDAOIMpl.logIn("ghg","fghfg"));
-
-
+        LoginController loginController=new LoginController();
+        String inf=loginController.serve(new HashMap<>(),"student","fghf","ghfg");
+        System.out.println(inf);
 
 
-
-    }catch (SQLException e){
-            e.printStackTrace();
-        }
     }
 }

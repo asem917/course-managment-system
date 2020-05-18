@@ -20,6 +20,7 @@ public class ServiceLocator {
     }
 
     private static AtomicInteger count = new AtomicInteger(0);
+
     public static Controller getController (String controllerName) {
         synchronized (ServiceLocator.class) {
             count.getAndIncrement();

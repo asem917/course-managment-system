@@ -13,7 +13,7 @@ public interface StudentDAO {
     void viewStudentCourses(int studentId) throws SQLException;
     void viewAttendance(int studentId,int courseId) throws SQLException;
     void viewCourseFeedback(int studentId,int courseId) throws SQLException;
-    void SignUp(Student student) throws SQLException;
+
 
 
 

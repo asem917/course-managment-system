@@ -2,35 +2,25 @@ package model.dao.impl;
 
 
 import model.dao.AdminDAO;
+import model.dao.UserDao;
 import model.dao.utils.DataSourcePool;
 import model.entity.Courses;
 import model.entity.Instructor;
 import model.entity.Reports;
+import model.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdminDAOimpl implements AdminDAO {
-    private String userName;
-    private String passwored;
-    private String host;
-    private String databaseName;
-    private DataSourcePool dataSourcePool;
+public class AdminDAOimpl extends UserDaoImpl implements AdminDAO {
 
-    public AdminDAOimpl(String userName, String passwored, String host, String databaseName) {
-        this.userName = userName;
-        this.passwored = passwored;
-        this.host = host;
-        this.databaseName = databaseName;
-        this.dataSourcePool=new DataSourcePool(userName,passwored,host,databaseName);
-    }
 
-    public Connection getConnection() throws SQLException {
 
-        return dataSourcePool.getConnections().getConnection();
-    }
+
+
+
     @Override
     public void addInstructor(Instructor instructor) throws SQLException {
 
@@ -82,4 +72,10 @@ public class AdminDAOimpl implements AdminDAO {
         getConnection().close();
         return reports;
     }
+
+
+
+
+
+
 }

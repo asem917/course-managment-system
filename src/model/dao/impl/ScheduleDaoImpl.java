@@ -13,23 +13,17 @@ import java.sql.Statement;
 
 public class ScheduleDaoImpl implements ScheduleDao {
 
-    private String userName;
-    private String passwored;
-    private String host;
-    private String databaseName;
+
     private DataSourcePool dataSourcePool;
 
-    public ScheduleDaoImpl(String userName, String passwored, String host, String databaseName) {
-        this.userName=userName;
-        this.passwored=passwored;
-        this.host=host;
-        this.databaseName=databaseName;
-        this.dataSourcePool=new DataSourcePool(userName,passwored,host,databaseName);
+    public ScheduleDaoImpl() {
+
+        this.dataSourcePool=new DataSourcePool();
 
     }
     public Connection getConnection() throws SQLException {
 
-        return dataSourcePool.getConnections().getConnection();
+        return dataSourcePool.getWraperConnections().getConnection();
 
     }
 

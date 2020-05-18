@@ -2,33 +2,19 @@ package model.dao.impl;
 
 
 import model.dao.StudentDAO;
+import model.dao.UserDao;
 import model.dao.utils.DataSourcePool;
 import model.entity.Student;
 
 import java.sql.*;
 
-public class StudentDAOIMpl implements StudentDAO {
-    private String userName;
-    private String passwored;
-    private String host;
-    private String databaseName;
-    private DataSourcePool dataSourcePool;
+public class StudentDAOIMpl extends UserDaoImpl implements StudentDAO {
 
 
-    public StudentDAOIMpl(String userName, String passwored, String host, String databaseName) {
-        this.userName=userName;
-        this.passwored=passwored;
-        this.host=host;
-        this.databaseName=databaseName;
-        this.dataSourcePool=new DataSourcePool(userName,passwored,host,databaseName);
 
-    }
 
-    public Connection getConnection() throws SQLException {
 
-        return dataSourcePool.getConnections().getConnection();
 
-    }
 
     @Override
     public void registerCourse(int studentId, int courseId) throws SQLException {
@@ -104,35 +90,7 @@ public class StudentDAOIMpl implements StudentDAO {
 
     }
 
-    @Override
-    public void SignUp(Student student) throws SQLException {
-        Connection connection=getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("insert into course_managment_system.student (idstudent, first_name, last_name, email, password, join_year) values (?,?,?,?,?,?)");
-        preparedStatement.setInt(1, student.getId());
-        preparedStatement.setString(2,student.getFirstName());
-        preparedStatement.setString(3,student.getLastName());
-        preparedStatement.setString(4,student.getEmail());
-        preparedStatement.setString(5,student.getPassword());
-        preparedStatement.setString(6,student.getJoinYear());
-        preparedStatement.executeUpdate();
-        connection.close();
-
-    }
-    public boolean logIn(String passwored,String email) throws SQLException {
-        try {
-            Connection connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("select  student.idstudent from course_managment_system.student   where  password like ? and email like ?");
-            preparedStatement.setString(1, passwored);
-            preparedStatement.setString(2, email);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                resultSet.getInt(1);
-            }
 
 
-        }catch (SQLException e){
-            return false;
-        }
-        return true;
-    }
+
 }

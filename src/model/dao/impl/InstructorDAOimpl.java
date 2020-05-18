@@ -2,30 +2,19 @@ package model.dao.impl;
 
 
 import model.dao.InstructorDao;
+import model.dao.UserDao;
 import model.dao.utils.DataSourcePool;
 import model.entity.Courses;
 import model.entity.Student;
+import model.entity.User;
 
 import java.sql.*;
 
-public class InstructorDAOimpl implements InstructorDao {
-    private String userName;
-    private String passwored;
-    private String host;
-    private String databaseName;
-    private DataSourcePool dataSourcePool;
+public class InstructorDAOimpl extends UserDaoImpl implements InstructorDao {
 
-    public InstructorDAOimpl(String userName, String passwored, String host, String databaseName) {
-        this.userName = userName;
-        this.passwored = passwored;
-        this.host = host;
-        this.databaseName = databaseName;
-        this.dataSourcePool=new DataSourcePool(userName,passwored,host,databaseName);
-    }
 
-    public Connection getConnection() throws SQLException {
 
-        return dataSourcePool.getConnections().getConnection();}
+
     @Override
     public void studentsAttendance(Courses courses,Student student) throws SQLException {
         PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into course_managment_system.attendance(idstudent_fk, idcourse_fk) values (?,?)");
@@ -66,4 +55,9 @@ public class InstructorDAOimpl implements InstructorDao {
 
 
     }
+
+
+
+
+
 }

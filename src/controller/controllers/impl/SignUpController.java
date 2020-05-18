@@ -7,15 +7,15 @@ import java.util.Map;
 
 public class SignUpController implements Controller {
 
+
     @Override
-    public boolean requireAuthentication() {
+    public boolean requireAuthentication(String userName, String email, String password) {
         return false;
     }
 
     @Override
-    public String serve(Map<String, String> params) {
-        System.out.println("This is Sign up service");
-        return "";
+    public String serve(Map<String, String> params, String userName, String email, String password) {
+        return null;
     }
 
     @Override
