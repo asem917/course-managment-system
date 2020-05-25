@@ -35,7 +35,7 @@ public class CourseDAOImpl implements CourseDAO {
         PreparedStatement preparedStatement=getConnection().prepareStatement(sql);
         ResultSet resultSet=preparedStatement.executeQuery();
         resultSet.next();
-        int iD=resultSet.getInt(1);
+        String iD=resultSet.getString(1);
         String name=resultSet.getString(2);
         String teacherName=resultSet.getString(3);
         Courses courses=new Courses(iD,name,teacherName);
@@ -55,11 +55,11 @@ public class CourseDAOImpl implements CourseDAO {
     @Override
     public void creat(Courses courses) throws SQLException {
 
-        int iD=courses.getCourseId();
+        String iD=courses.getCourseId();
         String name=courses.getCourseName();
         String teName=courses.getTeacherName();
-        PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into student2.course (courseId, courseName, teacherName) values (?,?,?)");
-        preparedStatement.setInt(1,iD);
+        PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into course_managment_system.course (idcourse, course_name, instractor_name) values (?,?,?)");
+        preparedStatement.setString(1,iD);
         preparedStatement.setString(2,name);
         preparedStatement.setString(3,teName);
         preparedStatement.executeUpdate();
@@ -68,7 +68,8 @@ public class CourseDAOImpl implements CourseDAO {
     }
 
     @Override
-    public void update(Courses courses) {
+    public Courses update(String courseId) {
+        return null;
 
     }
 }

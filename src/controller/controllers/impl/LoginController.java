@@ -27,7 +27,7 @@ public class LoginController implements Controller {
 
     @Override
     public boolean requireAuthentication(String userName,String email,String password) {
-        return getUser(userName).authentication(email, password);
+        return false;
     }
 
     @Override

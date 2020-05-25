@@ -1,13 +1,13 @@
 package model.entity;
 
 public class User {
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
 
-    public User(int id, String firstName, String lastName, String email, String password) {
+    public User(String id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,11 +15,11 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

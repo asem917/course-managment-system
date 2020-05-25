@@ -8,9 +8,9 @@ import model.entity.Student;
 import java.sql.SQLException;
 
 public interface InstructorDao {
-    void studentsAttendance(Courses courses,Student student) throws SQLException;
-    void addStudent(Courses courses, Student student) throws SQLException;
-    void removeStudent(Courses courses, Student student) throws SQLException;
-    void modifyStudent(Student student);
+    void studentsAttendance(String courseId,String studentId) throws SQLException;
+    void addStudent(String courseId,String studentId) throws SQLException;
+    void removeStudent(String courseId,String studentId) throws SQLException;
+    Student modifyStudent(String studentId) throws SQLException;
 
 }

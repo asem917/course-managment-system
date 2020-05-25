@@ -2,21 +2,21 @@ package model.entity;
 
 public class Courses {
 
-   private int courseId;
+   private String courseId;
    private String courseName;
    private String teacherName;
 
-    public Courses(int courseId, String courseName, String teacherName) {
+    public Courses(String courseId, String courseName, String teacherName) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.teacherName = teacherName;
     }
 
-    public int getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 

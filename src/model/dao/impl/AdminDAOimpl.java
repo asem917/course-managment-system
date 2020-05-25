@@ -25,7 +25,7 @@ public class AdminDAOimpl extends UserDaoImpl implements AdminDAO {
     public void addInstructor(Instructor instructor) throws SQLException {
 
         PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into course_managment_system.instructor (idinstructor, first_name, last_name, email, password) values (?,?,?,?,?)");
-        preparedStatement.setInt(1,instructor.getId());
+        preparedStatement.setString(1,instructor.getId());
         preparedStatement.setString(2,instructor.getFirstName());
         preparedStatement.setString(3,instructor.getLastName());
         preparedStatement.setString(4,instructor.getEmail());
@@ -39,7 +39,7 @@ public class AdminDAOimpl extends UserDaoImpl implements AdminDAO {
     @Override
     public void addCourse(Courses courses) throws SQLException {
         PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into course_managment_system.course (idcourse, course_name, instractor_name) values (?,?,?)");
-        preparedStatement.setInt(1,courses.getCourseId());
+        preparedStatement.setString(1,courses.getCourseId());
         preparedStatement.setString(2,courses.getCourseName());
         preparedStatement.setString(3,courses.getTeacherName());
 
@@ -49,10 +49,10 @@ public class AdminDAOimpl extends UserDaoImpl implements AdminDAO {
     }
 
     @Override
-    public void assignInstructor(Instructor instructor, Courses courses) throws SQLException {
+    public void assignInstructor(String instructorId, String courseId) throws SQLException {
         PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into course_managment_system.instructors_course (idinstructor_fk, idcourse) values (?,?)");
-        preparedStatement.setInt(1,instructor.getId());
-        preparedStatement.setInt(2,courses.getCourseId());
+        preparedStatement.setString(1,instructorId);
+        preparedStatement.setString(2,courseId);
         preparedStatement.executeUpdate();
         getConnection().close();
 

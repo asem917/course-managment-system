@@ -17,6 +17,13 @@ public class WraperConnection {
     public WraperConnection() throws SQLException {
 
         this.c=LocalDateTime.now();
+        try {
+
+
+            Class.forName("com.mysql.jdbc.Driver");
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
         this.connection= DriverManager.getConnection("jdbc:mysql://"+host+":3306/"+databaseName,userName,passwored);
 
 
