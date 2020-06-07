@@ -17,8 +17,8 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public boolean authentication(String email, String password,String tableName) {
-        String sqlStatement="select* from course_managment_system."+tableName+"  where  password =? and email= ?";
+    public boolean authentication(String email, String password,String userName) {
+        String sqlStatement="select* from course_managment_system."+userName+"  where  password =? and email= ?";
         boolean status=false;
         try {
             Connection connection = getConnection();

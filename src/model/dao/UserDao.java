@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public interface UserDao {
-    boolean authentication(String email, String password,String sqlStatement);
+    boolean authentication(String email, String password,String userName);
     void signUp(User user,String sqlStatement) throws SQLException;
     Connection getConnection() throws SQLException;
 }

@@ -76,6 +76,4 @@ public class AdminDAOimpl extends UserDaoImpl implements AdminDAO {
 
 
 
-
-
 }

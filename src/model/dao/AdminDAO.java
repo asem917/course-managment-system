@@ -14,4 +14,5 @@ public interface AdminDAO {
     void addCourse(Courses courses) throws SQLException;
     void assignInstructor(String instructorId, String courseId) throws SQLException;
     Reports viewReport(int id) throws SQLException;
+
 }

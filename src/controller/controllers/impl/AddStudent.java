@@ -16,17 +16,18 @@ public class AddStudent implements Controller {
 
     @Override
     public boolean requireAuthentication(String userName, String email, String password) {
-        return instructorDAOimpl.authentication(email,password,"instructor");
+        return instructorDAOimpl.authentication(email,password,userName);
     }
 
     @Override
     public String serve(Map<String, String> params, String userName, String email, String password) throws SQLException {
         if (requireAuthentication("instructor",email,password)){
-            student=new Student(params.get("idStudent"),params.get("firstName"),params.get("lastName"),params.get("email"),params.get("password"),params.get("joinYear"));
 
-
+           instructorDAOimpl.addStudent(params.get("courseId"),params.get("studentId"));
+            return "the student has been added successfully";
         }
-        return "";
+        return "you are not authorize" +
+                "";
     }
 
     @Override

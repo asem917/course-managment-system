@@ -15,7 +15,7 @@ public class AddInstructorController implements Controller {
 
     @Override
     public boolean requireAuthentication(String userName, String email, String password) {
-        return adminDAOimpl.authentication(email,password,"admin");
+        return adminDAOimpl.authentication(email,password,userName);
     }
 
     @Override

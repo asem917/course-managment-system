@@ -7,8 +7,8 @@ import java.sql.SQLException;
 
 public interface CourseDAO {
 
-    Courses findById(int id) throws SQLException;
-    void deleteCourse(int id) throws SQLException;
+    Courses findById(String id) throws SQLException;
+    void deleteCourse(String id) throws SQLException;
     void creat(Courses courses) throws SQLException;
     Courses update(String courseId);
 

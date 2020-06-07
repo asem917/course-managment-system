@@ -29,7 +29,7 @@ public class CourseDAOImpl implements CourseDAO {
 
 
     @Override
-    public Courses findById(int id) throws SQLException {
+    public Courses findById(String id) throws SQLException {
         String sql="select *from student2.course where course.courseId="+id+"";
 
         PreparedStatement preparedStatement=getConnection().prepareStatement(sql);
@@ -44,7 +44,7 @@ public class CourseDAOImpl implements CourseDAO {
     }
 
     @Override
-    public void deleteCourse(int id) throws SQLException {
+    public void deleteCourse(String id) throws SQLException {
         String sql="delete from student2.course where courseId="+id+"";
         Statement statement=getConnection().createStatement();
         int resultSet=statement.executeUpdate(sql);
